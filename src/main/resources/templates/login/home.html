@@ -19,18 +19,33 @@
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-body">
-						<form>
+						<form th:action="@{/auth}" th:object="${loginForm}" method="post">
+							<!--<div th:if="${param.error}">
+								ログインに失敗しました
+								<div th:if="${session[SPRING_SECURITY_LAST_EXCEPTION] != null}">
+									<span th:text="${session[SPRING_SECURITY_LAST_EXCEPTION].message}"></span>
+								</div>
+							</div>
+							<div th:if="${param.logout}">
+								ログアウトしました
+							</div>-->
 							<!-- 名前入力フォーム -->
 							<div class="form-group">
 								<label for="username">名前</label>
-								<input type="text" class="form-control" id="username">
+								<input type="text" class="form-control" id="username" name="username"
+									th:field="*{username}">
 							</div>
+							<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+								class="text-danger">Name Error</span>
 
 							<!-- パスワード入力フォーム -->
 							<div class="form-group">
 								<label for="password">パスワード</label>
-								<input type="password" class="form-control" id="password">
+								<input type="password" class="form-control" id="password" name="password"
+									th:field="*{password}">
 							</div>
+							<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+								class="text-danger">password Error</span>
 
 							<!-- ログインボタン -->
 							<div class="row justify-content-center">
@@ -48,7 +63,7 @@
 	<!-- アカウント登録ボタン） -->
 	<div class="container mt-5">
 		<div class="row justify-content-center">
-			<a href="login/account" class="btn btn-primary col-3">アカウント作成</a>
+			<a href="login/signup" class="btn btn-primary col-3">アカウント作成</a>
 		</div>
 	</div>
 	<!-- Optional JavaScript -->
