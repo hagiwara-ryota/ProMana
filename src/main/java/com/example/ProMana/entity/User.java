@@ -32,6 +32,12 @@ public class User implements UserDetails {
 	}
 
 	@Override
+	public String getPassword() {
+		// データベースから取得したユーザーのパスワードを返す
+		return password;
+	}
+
+	@Override
 	public boolean isAccountNonExpired() {
 		return true;
 	}
@@ -50,6 +56,5 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-
 
 }

@@ -2,6 +2,7 @@ package com.example.ProMana.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,39 +21,40 @@ public class LoginController {
 	private UserService userService;
 
 	@GetMapping("/")
-	public String root() {
+	public String root(Model model) {
+		model.addAttribute("loginForm", new LoginForm());
 		return "login";
 	}
 
 	@GetMapping("/login")
 	public String home(LoginForm loginForm) {
-		return "login/home";
+		return "login";
 	}
 
-	@GetMapping("/login/signup")
+	@GetMapping("/signup")
 	public String showAccountPage(UserForm userForm) {
-		return "login/signup";
+		return "signup";
 	}
 
-	@PostMapping("/auth")
+	@PostMapping("/login")
 	public String checkLoginInfo(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
-			return "login/home";
+			return "login";
 		}
 
-		return "redirect:/hello";
+		return "redirect:/menu";
 	}
 
 	@PostMapping("/register")
 	public String checkUserInfo(@Valid @ModelAttribute("userForm") UserForm userForm, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
-			return "login/signup";
+			return "signup";
 		}
 
 		userService.registerUser(userForm.getUsername(), userForm.getPassword());
-		return "redirect:/hello";
+		return "login";
 	}
 
 	/*@PostMapping("/aaaaaaaaaaaaaa")

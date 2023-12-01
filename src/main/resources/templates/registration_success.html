@@ -7,15 +7,14 @@
 </head>
 
 <body>
-	
-	
-	<h1 th:inline="text">こんにちは <span th:remove="tag" sec:authentication="username">thymeleaf</span>!</h1>
-	<form th:action="@{/menul}" method="post">
+
+
+	<h1 th:inline="text">こんにちは <span th:remove="tag" sec:authentication="name">thymeleaf</span>さん!</h1>
+	<form th:action="@{/menul}" method="get">
 		<input type="submit" />
-		
-	<form th:action="@{/logout}" method="post">
-		<input type="submit" value="Sign Out" />
 	</form>
+
+	
 </body>
 
 </html>

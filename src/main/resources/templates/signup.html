@@ -38,10 +38,19 @@
 							<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
 								class="text-danger">password Error</span>
 
+							<div class="form-group">
+								<label for="passwordConfirmation">パスワード（確認用）</label>
+								<input type="password" class="form-control" th:field="*{passwordConfirmation}" />
+							</div>
+							<p style="color: red;" th:if="${#fields.hasErrors('passwordConfirmation')}"
+								th:errors="*{passwordConfirmation}">
+							</p>
+
 							<!-- 新規作成ボタン -->
-							<div class="row justify-content-center">
+							<div class="row justify-content-center pt-4">
 								<button type="submit" class="col-6 btn btn-primary">新規作成</button>
 							</div>
+
 						</form>
 					</div>
 
