@@ -22,7 +22,7 @@ public class WebSecurityConfig {
 				.anyRequest().authenticated())
 				.formLogin((form) -> form
 						.loginPage("/login")
-						.defaultSuccessUrl("/menu", true)
+						.defaultSuccessUrl("/menus/index", true)
 						.permitAll())
 				.logout((logout) -> logout.permitAll());
 

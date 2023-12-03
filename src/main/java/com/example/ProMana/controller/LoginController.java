@@ -43,7 +43,7 @@ public class LoginController {
 			return "login";
 		}
 
-		return "redirect:/menu";
+		return "redirect:/menus/index";
 	}
 
 	@PostMapping("/register")
@@ -57,11 +57,6 @@ public class LoginController {
 		return "login";
 	}
 
-	/*@PostMapping("/aaaaaaaaaaaaaa")
-	public String registerUser(@ModelAttribute("loginForm") User user, Model model) {
-		// フォームデータを使ってユーザーを登録
-		return "redirect:/menu"; // リダイレクト先を適切なページに変更
-	}*/
 }
 //UserController.java
 /*@PostMapping("/register")

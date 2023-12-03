@@ -53,13 +53,13 @@
 	<!-- アカウント登録ボタン） -->
 	<div class="container mt-5">
 		<div class="row justify-content-center">
-			<a href="/signup" class="btn btn-primary col-3">アカウント作成</a>
+			<a th:href="@{/signup}" class="btn btn-primary col-3">アカウント作成</a>
 		</div>
 	</div>
 
 	<!-- ログインエラーメッセージ -->
 	<div th:if="${param.error}">
-		ログインに失敗しました
+	
 		<div th:if="${session[SPRING_SECURITY_LAST_EXCEPTION] != null}">
 			<span th:text="${session[SPRING_SECURITY_LAST_EXCEPTION].message}"></span>
 		</div>
