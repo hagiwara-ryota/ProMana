@@ -49,20 +49,25 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th scope="col">ライン名</th>
-					<th scope="col">製品名</th>
-					<th scope="col">ケース/時間</th>
-					<th scope="col">登録日</th>
+					<th scope="col" class="bg-secondary text-white">ライン名</th>
+					<th scope="col" class="bg-secondary text-white">製品名</th>
+					<th scope="col" class="bg-secondary text-white">ケース/時間</th>
+					<th scope="col" class="bg-secondary text-white">登録日</th>
+					<th scope="col" class="bg-secondary text-white">更新日</th>
+					<th scope="col" class="bg-secondary text-white">操作</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="event : ${events}">
-					<th th:text="${event.name}" scope="row"></th>
-					<td th:text="${event.product_name}"></td>
-					<td th:text="${event.case_count_per_hour}"></td>
-					<td th:text="${event.created_at}"></td>
-					<td th:text="${event.updated_at}"></td>
-
+				<tr th:each="lines : ${lines}">
+					<th th:text="${lines.name}" scope="row"></th>
+					<td th:text="${lines.product_name}"></td>
+					<td th:text="${lines.case_count_per_hour}"></td>
+					<td th:text="${lines.created_at}"></td>
+					<td th:text="${lines.updated_at}"></td>
+					<td>
+						<button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button>
+						<button type="button" class="btn btn-warning" onclick="editRow(this)">編集</button>
+					</td>
 				</tr>
 			</tbody>
 		</table>

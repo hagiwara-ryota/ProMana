@@ -6,9 +6,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
 @Table(name = "lines")
+@Data
 public class Lines extends AbstractEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +23,6 @@ public class Lines extends AbstractEntity {
 	private String product_name;
 
 	@Column(nullable = false)
-	private String case_count_per_hour;
+	private int case_count_per_hour;
 
 }

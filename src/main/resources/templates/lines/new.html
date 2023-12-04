@@ -12,25 +12,34 @@
 
 <body>
 	<div class="container mt-5">
-		<form id="form-block">
+		<form id="form-block" th:action="@{/lines/index}" th:object="${linesForm}" method="post">
 			<div class="form-group ">
 				<label for="lineName">ライン名:</label>
-				<input type="text" class="form-control" name="lineName" placeholder="ライン名を入力してください" required>
+				<input type="text" class="form-control" name="lineName" placeholder="ライン名を入力してください" th:field="*{name}">
 			</div>
+			<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger">Error</p>
 			<div class="form-group ">
 				<label for="productName">製品名:</label>
-				<input type="text" class="form-control" name="productName" placeholder="製品名を入力してください" required>
+				<input type="text" class="form-control" name="productName" placeholder="製品名を入力してください"
+					th:field="*{product_name}">
 			</div>
+			<p th:if="${#fields.hasErrors('product_name')}" th:errors="*{product_name}" class="text-danger">Error</p>
 			<div class="form-group ">
 				<label for="casesPerHour">ケース数/時間:</label>
-				<input type="number" class="form-control" name="casesPerHour" placeholder="ケース数/時間を入力してください" required>
+				<input type="text" class="form-control" name="casesPerHour" placeholder="ケース数/時間を入力してください"
+					th:field="*{case_count_per_hour}">
 			</div>
-			<button type="button" class="btn btn-primary" id="add-form-btn">フォーム追加</button>
+			<p th:if="${#fields.hasErrors('case_count_per_hour')}" th:errors="*{case_count_per_hour}"
+				class="text-danger">Error</p>
 
+			<button type="button" class="btn btn-primary" id="add-form-btn">フォーム追加</button>
+			<div class="row justify-content-center pt-4">
+				<button type="submit" class="col-6 btn btn-primary">ライン情報登録</button>
+			</div>
 		</form>
 	</div>
 
-	<script th:src="@{/scripts/formManager.js}"></script>
+	<!--<script th:src="@{/scripts/formManager.js}"></script>-->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 		crossorigin="anonymous"></script>
