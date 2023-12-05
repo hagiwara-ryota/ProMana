@@ -16,20 +16,10 @@
 			<div class="row">
 				<div class="col">
 					<label for="lineName" class="form-label">ライン名:</label>
-					<select class="form-select" id="lineName" name="lineName" th:field="*{linesId}">
+					<select class="form-select" id="lineName" name="lineName" th:field="*{lines_Id}">
 
-						<option th:each="line : ${lines}" th:value="${line.id}" th:text="${line.name}"></option>
-
-					</select>
-				</div>
-
-				<div class="col">
-					<label for="productName" class="form-label">製品名:</label>
-					<select class="form-select" id="productName" name="productName" th:field="*{productName}">
-
-						<option th:each="line : ${lines}" th:value="${line.product_name}"
-							th:text="${line.product_name}">
-						</option>
+						<option th:each="line : ${lines}" th:value="${line.id}"
+							th:text="${line.name + ' - ' + line.product_name}"></option>
 
 					</select>
 				</div>

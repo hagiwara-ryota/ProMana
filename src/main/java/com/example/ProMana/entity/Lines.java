@@ -15,8 +15,6 @@ public class Lines extends AbstractEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	//@joinカラム
-	//@JoinColumn(name = "topicId
 	private Long id;
 
 	@Column(nullable = false)

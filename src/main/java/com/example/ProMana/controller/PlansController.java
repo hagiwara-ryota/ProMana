@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.ProMana.Service.PlansService;
 import com.example.ProMana.form.PlansForm;
 import com.example.ProMana.repository.LinesRepository;
 
@@ -18,6 +20,9 @@ public class PlansController {
 	@Autowired
 	private LinesRepository linesRepository;
 
+	@Autowired
+	private PlansService plansService;
+
 	@GetMapping("/plans/new")
 	public String showRegistrationForm(Model model, PlansForm plansForm) {
 		model.addAttribute("lines", linesRepository.findAll());
@@ -26,14 +31,16 @@ public class PlansController {
 	}
 
 	@GetMapping("/savePlans")
-	public String create(@Valid @ModelAttribute("plansForm") PlansForm plansForm, BindingResult bindingResult,
+	public String create(@Valid @ModelAttribute("plansForm") PlansForm plansForm, @RequestParam("lines_Id") Long lines_Id,
+			BindingResult bindingResult,
 			Model model) {
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("lines", linesRepository.findAll());
 			return "plans/new";
 		}
-		return "a";
+		plansService.registerPlans(lines_Id, plansForm.getPlanned_case_count());
+		return "plans/a";
 
 	}
 	/*@RequestMapping(value = "/topics/{topicId}/comments/new")

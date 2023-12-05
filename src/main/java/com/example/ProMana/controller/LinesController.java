@@ -31,7 +31,8 @@ public class LinesController {
 	}
 
 	@GetMapping("/saveLines")
-	public String create(@Valid @ModelAttribute("linesForm") LinesForm linesForm, BindingResult bindingResult,
+	public String create(@Valid @ModelAttribute("linesForm") LinesForm linesForm,
+			BindingResult bindingResult,
 			Model model) {
 
 		if (bindingResult.hasErrors()) {
