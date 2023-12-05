@@ -12,7 +12,7 @@
 
 <body>
 	<div class="container mt-5">
-		<form id="form-block" th:action="@{/lines/index}" th:object="${linesForm}" method="post">
+		<form id="form-block" th:action="@{/saveLines}" th:object="${linesForm}" method="get">
 			<div class="form-group ">
 				<label for="lineName">ライン名:</label>
 				<input type="text" class="form-control" name="lineName" placeholder="ライン名を入力してください" th:field="*{name}">

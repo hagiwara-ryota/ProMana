@@ -5,27 +5,25 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "lines")
+@Table(name = "plans")
 @Data
-public class Lines extends AbstractEntity {
+public class Plans extends AbstractEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	//@joinカラム
-	//@JoinColumn(name = "topicId
 	private Long id;
 
 	@Column(nullable = false)
-	private String name;
+	private int planned_case_count;
 
-	@Column(nullable = false)
-	private String product_name;
-
-	@Column(nullable = false)
-	private int case_count_per_hour;
+	@OneToOne
+	@JoinColumn(name = "lines_id")
+	private Lines lines;
 
 }

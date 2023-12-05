@@ -29,12 +29,13 @@ public class MenuController {
 	}
 
 	@GetMapping("/plans/index")
-	public String plansindex() {
-		return "menus/index";
+	public String plansindex(/*Model model*/) {
+		//List<Plans> plansList = plansRepository.findAll();
+		return "plans/index";
 	}
 
 	@GetMapping("/produced_case_counts/index")
 	public String produced_case_countsIndex() {
-		return "menus/index";
+		return "produced_case_counts/index";
 	}
 }

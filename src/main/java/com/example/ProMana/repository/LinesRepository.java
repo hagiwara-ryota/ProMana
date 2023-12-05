@@ -8,4 +8,5 @@ import com.example.ProMana.entity.Lines;
 @Repository
 public interface LinesRepository extends JpaRepository<Lines, Long> {
 
+
 }

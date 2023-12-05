@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS plans
 (
    id SERIAL PRIMARY KEY,
    planned_case_count INT,
-   lines_id INT,
+   lines_id LONG,
    created_at TIMESTAMP NOT NULL,
    updated_at TIMESTAMP NOT NULL,
    FOREIGN KEY (lines_id) REFERENCES lines (id)
@@ -33,7 +33,7 @@ DROP TABLE IF EXISTS produced_case_counts CASCADE;
 CREATE TABLE IF NOT EXISTS produced_case_counts
 (
    id SERIAL PRIMARY KEY,
-   lines_id INT,
+   lines_id LONG,
    count INT,
    created_at TIMESTAMP NOT NULL,
    updated_at TIMESTAMP NOT NULL,

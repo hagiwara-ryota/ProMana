@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.ProMana.entity.Lines;
 import com.example.ProMana.repository.LinesRepository;
+
 @Service
 public class LinesService {
 
@@ -19,4 +20,9 @@ public class LinesService {
 
 		linesRepository.save(lines);
 	}
+	
+	//public List<Lines> getAllLines() {
+		//return linesRepository.findAll();
+	//}
+
 }

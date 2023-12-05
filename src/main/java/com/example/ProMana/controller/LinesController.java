@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.ProMana.Service.LinesService;
 import com.example.ProMana.entity.Lines;
@@ -27,12 +26,12 @@ public class LinesController {
 	LinesRepository linesRepository;
 
 	@GetMapping("/lines/new")
-	public String create(LinesForm linesForm) {
+	public String showRegistrationForm(LinesForm linesForm) {
 		return "lines/new";
 	}
 
-	@PostMapping("/lines/index")
-	public String checkLinesInfo(@Valid @ModelAttribute("linesForm") LinesForm linesForm, BindingResult bindingResult,
+	@GetMapping("/saveLines")
+	public String create(@Valid @ModelAttribute("linesForm") LinesForm linesForm, BindingResult bindingResult,
 			Model model) {
 
 		if (bindingResult.hasErrors()) {
