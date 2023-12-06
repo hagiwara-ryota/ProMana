@@ -1,6 +1,6 @@
 package com.example.ProMana.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
@@ -13,20 +13,20 @@ import lombok.Data;
 public class AbstractEntity {
 
 	@Column(name = "created_at")
-	private LocalDate created_at;
+	private LocalDateTime created_at;
 
 	@Column(name = "updated_at")
-	private LocalDate updated_at;
+	private LocalDateTime updated_at;
 
 	@PrePersist
 	public void onPrePersist() {
-		LocalDate dateTime = LocalDate.now();
+		LocalDateTime dateTime = LocalDateTime.now();
 		setCreated_at(dateTime);
 		setUpdated_at(dateTime);
 	}
 
 	@PreUpdate
 	public void onPreUpdate() {
-		setUpdated_at(LocalDate.now());
+		setUpdated_at(LocalDateTime.now());
 	}
 }

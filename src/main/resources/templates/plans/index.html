@@ -57,24 +57,25 @@
 					<th scope="col" class="bg-secondary text-white">操作</th>
 				</tr>
 			</thead>
-			<!--<tbody>
+			<tbody>
 				<tr th:each="lines : ${lines}">
 					<th th:text="${lines.name}" scope="row"></th>
 					<td th:text="${lines.product_name}"></td>
 					<td th:text="${lines.case_count_per_hour}"></td>
+					<td th:text="${lines.plan.planned_case_count}"></td>
 					<td th:text="${lines.created_at}"></td>
-					<td th:text="${lines.updated_at}"></td>
 					<td>
 						<button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button>
 						<button type="button" class="btn btn-warning" onclick="editRow(this)">編集</button>
 					</td>
 				</tr>
-			</tbody>-->
+			</tbody>
 		</table>
+	</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-			crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
 </body>
 
 </html>

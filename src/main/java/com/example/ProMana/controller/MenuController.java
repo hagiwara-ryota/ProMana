@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.ProMana.entity.Lines;
+import com.example.ProMana.entity.Line;
 import com.example.ProMana.repository.LinesRepository;
 
 @Controller
@@ -23,14 +23,15 @@ public class MenuController {
 
 	@GetMapping("/lines/index")
 	public String linesIndex(Model model) {
-		List<Lines> linesList = linesRepository.findAll();
+		List<Line> linesList = linesRepository.findAll();
 		model.addAttribute("lines", linesList);
 		return "lines/index";
 	}
 
 	@GetMapping("/plans/index")
-	public String plansindex(/*Model model*/) {
-		//List<Plans> plansList = plansRepository.findAll();
+	public String plansIndex(Model model) {
+		List<Line> linesList = linesRepository.findLinesWithPlan();
+		model.addAttribute("lines", linesList);
 		return "plans/index";
 	}
 
@@ -38,4 +39,5 @@ public class MenuController {
 	public String produced_case_countsIndex() {
 		return "produced_case_counts/index";
 	}
+
 }

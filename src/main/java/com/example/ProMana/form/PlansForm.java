@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class PlansForm {
 
-	private long lines_Id;
+	private Long lines_Id;
 
 	@NotNull(message = "空白は許可されていません")
 	@Min(value = 1, message = "正数を入力してください")
