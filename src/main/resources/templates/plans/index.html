@@ -58,12 +58,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="lines : ${lines}">
-					<th th:text="${lines.name}" scope="row"></th>
-					<td th:text="${lines.product_name}"></td>
-					<td th:text="${lines.case_count_per_hour}"></td>
-					<td th:text="${lines.plan.planned_case_count}"></td>
-					<td th:text="${lines.created_at}"></td>
+				<tr th:each="line : ${lines}">
+					<th th:text="${line.name}" scope="row"></th>
+					<td th:text="${line.product_name}"></td>
+					<td th:text="${line.case_count_per_hour}"></td>
+					<td th:text="${line.plan.planned_case_count}"></td>
+					<td th:text="${line.created_at}"></td>
 					<td>
 						<button type="button" class="btn btn-danger" onclick="deleteRow(this)">削除</button>
 						<button type="button" class="btn btn-warning" onclick="editRow(this)">編集</button>

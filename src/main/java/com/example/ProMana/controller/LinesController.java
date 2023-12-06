@@ -43,7 +43,7 @@ public class LinesController {
 
 		List<Line> linesList = linesRepository.findAll();
 		model.addAttribute("lines", linesList);
-		return "lines/index";
+		return "redirect:/lines/index";
 	}
 
 }

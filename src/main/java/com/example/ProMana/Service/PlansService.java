@@ -26,6 +26,6 @@ public class PlansService {
 		plan.setLines(line);
 		plan.setPlanned_case_count(planned_case_count);
 
-		plansRepository.save(plan);
+		plansRepository.saveAndFlush(plan);
 	}
 }

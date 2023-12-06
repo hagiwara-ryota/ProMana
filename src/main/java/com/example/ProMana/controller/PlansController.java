@@ -1,7 +1,5 @@
 package com.example.ProMana.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.ProMana.Service.LinesService;
 import com.example.ProMana.Service.PlansService;
-import com.example.ProMana.entity.Line;
 import com.example.ProMana.form.PlansForm;
 import com.example.ProMana.repository.LinesRepository;
 
@@ -40,15 +37,17 @@ public class PlansController {
 	public String create(@Valid @ModelAttribute("plansForm") PlansForm plansForm,
 			BindingResult bindingResult, @RequestParam("lines_Id") Long lines_Id,
 			Model model) {
+		System.out.println("ここを見ろ");
+		System.out.println(lines_Id);
+		System.out.println(plansForm.getPlanned_case_count());
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("lines", linesService.getAllLines());
 			return "plans/new";
 		}
+
 		plansService.registerPlan(lines_Id, plansForm.getPlanned_case_count());
-		List<Line> linesList = linesRepository.findLinesWithPlan();
-		model.addAttribute("lines", linesList);
-		return "plans/index";
+		return "redirect:/plans/index";
 
 	}
 
