@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.ProMana.Service.LinesService;
 import com.example.ProMana.Service.PlansService;
 import com.example.ProMana.form.PlansForm;
-import com.example.ProMana.repository.LinesRepository;
 
 import jakarta.validation.Valid;
 
@@ -24,9 +23,6 @@ public class PlansController {
 	@Autowired
 	private LinesService linesService;
 
-	@Autowired
-	private LinesRepository linesRepository;
-
 	@GetMapping("/plans/new")
 	public String showRegistrationForm(Model model, PlansForm plansForm) {
 		model.addAttribute("lines", linesService.getAllLines());
@@ -37,9 +33,6 @@ public class PlansController {
 	public String create(@Valid @ModelAttribute("plansForm") PlansForm plansForm,
 			BindingResult bindingResult, @RequestParam("lines_Id") Long lines_Id,
 			Model model) {
-		System.out.println("ここを見ろ");
-		System.out.println(lines_Id);
-		System.out.println(plansForm.getPlanned_case_count());
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("lines", linesService.getAllLines());

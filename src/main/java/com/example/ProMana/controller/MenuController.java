@@ -8,13 +8,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.ProMana.entity.Line;
+import com.example.ProMana.form.Produced_case_countForm;
 import com.example.ProMana.repository.LinesRepository;
+import com.example.ProMana.repository.Produced_case_countRepository;
 
 @Controller
 public class MenuController {
 
 	@Autowired
 	LinesRepository linesRepository;
+
+	@Autowired
+	Produced_case_countRepository produced_case_countRepository;
 
 	@GetMapping("/menus/index")
 	public String index() {
@@ -36,7 +41,9 @@ public class MenuController {
 	}
 
 	@GetMapping("/produced_case_counts/index")
-	public String produced_case_countsIndex() {
+	public String produced_case_countsIndex(Produced_case_countForm produced_case_countForm, Model model) {
+		List<Line> linesList = linesRepository.findLinesWithPlan();
+		model.addAttribute("lines", linesList);
 		return "produced_case_counts/index";
 	}
 
