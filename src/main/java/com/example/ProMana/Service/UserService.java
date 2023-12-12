@@ -10,7 +10,7 @@ import com.example.ProMana.repository.UserRepository;
 @Service
 public class UserService {
 
-	@Autowired
+	//@Autowired
 	private PasswordEncoder passwordEncoder;
 
 	@Autowired

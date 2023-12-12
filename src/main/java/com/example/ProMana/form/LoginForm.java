@@ -1,6 +1,7 @@
 package com.example.ProMana.form;
 
-import jakarta.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotEmpty;
+
 import lombok.Data;
 
 @Data

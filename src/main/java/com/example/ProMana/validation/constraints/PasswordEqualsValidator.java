@@ -2,11 +2,11 @@ package com.example.ProMana.validation.constraints;
 
 import java.util.Objects;
 
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
-
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
 
 public class PasswordEqualsValidator implements ConstraintValidator<PasswordEquals, Object> {
 

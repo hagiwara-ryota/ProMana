@@ -6,9 +6,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import jakarta.validation.Constraint;
-import jakarta.validation.Payload;
-import jakarta.validation.ReportAsSingleViolation;
+import javax.validation.Constraint;
+import javax.validation.Payload;
+import javax.validation.ReportAsSingleViolation;
 
 @Documented
 @Constraint(validatedBy = PasswordEqualsValidator.class)
@@ -17,7 +17,7 @@ import jakarta.validation.ReportAsSingleViolation;
 @ReportAsSingleViolation
 public @interface PasswordEquals {
 
-	String message() default "確認用パスワードが一致しません";
+	String message() default "{com.example.pictgram.validation.constraints.PasswordEquals.message}";
 
 	Class<?>[] groups() default {};
 

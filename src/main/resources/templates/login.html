@@ -23,7 +23,8 @@
 
 							<div class="form-group">
 								<label for="username">名前</label>
-								<input type="text" class="form-control" id="username" name="username" th:field="*{username}">
+								<input type="text" class="form-control" id="username" name="username"
+									th:field="*{username}">
 							</div>
 							<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
 								class="text-danger">Name Error</span>
@@ -48,7 +49,7 @@
 			</div>
 		</div>
 	</div>
-	</div>
+
 
 	<!-- アカウント登録ボタン） -->
 	<div class="container mt-5">
@@ -59,7 +60,7 @@
 
 	<!-- ログインエラーメッセージ -->
 	<div th:if="${param.error}">
-	
+
 		<div th:if="${session[SPRING_SECURITY_LAST_EXCEPTION] != null}">
 			<span th:text="${session[SPRING_SECURITY_LAST_EXCEPTION].message}"></span>
 		</div>

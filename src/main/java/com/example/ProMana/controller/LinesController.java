@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -13,8 +14,6 @@ import com.example.ProMana.Service.LinesService;
 import com.example.ProMana.entity.Line;
 import com.example.ProMana.form.LinesForm;
 import com.example.ProMana.repository.LinesRepository;
-
-import jakarta.validation.Valid;
 
 @Controller
 public class LinesController {
@@ -31,7 +30,7 @@ public class LinesController {
 	}
 
 	@GetMapping("/saveLines")
-	public String create(@Valid @ModelAttribute("linesForm") LinesForm linesForm,
+	public String create(@Validated @ModelAttribute("linesForm") LinesForm linesForm,
 			BindingResult bindingResult,
 			Model model) {
 
