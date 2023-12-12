@@ -7,7 +7,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class Produced_case_countForm {
+public class ProducedCaseCountForm {
+	
+	private int lineId;
 	
 	@NumberFormat(style = NumberFormat.Style.NUMBER)
 	@NotNull(message = "空白は許可されていません")

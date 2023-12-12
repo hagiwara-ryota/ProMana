@@ -20,7 +20,7 @@ public class Plan extends AbstractEntity {
 	private Long id;
 
 	@Column(nullable = false)
-	private int planned_case_count;
+	private int plannedCaseCount;
 
 	@OneToOne
 	@JoinColumn(name = "lines_id")

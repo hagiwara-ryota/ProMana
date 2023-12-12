@@ -31,7 +31,7 @@ public class PlansController {
 
 	@GetMapping("/savePlans")
 	public String create(@Valid @ModelAttribute("plansForm") PlansForm plansForm,
-			BindingResult bindingResult, @RequestParam("lines_Id") Long lines_Id,
+			BindingResult bindingResult, @RequestParam("lineId") long lineId,
 			Model model) {
 
 		if (bindingResult.hasErrors()) {
@@ -39,7 +39,7 @@ public class PlansController {
 			return "plans/new";
 		}
 
-		plansService.registerPlan(lines_Id, plansForm.getPlanned_case_count());
+		plansService.registerPlan(lineId, plansForm.getPlannedCaseCount());
 		return "redirect:/plans/index";
 
 	}

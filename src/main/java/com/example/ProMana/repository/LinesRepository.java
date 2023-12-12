@@ -13,4 +13,8 @@ public interface LinesRepository extends JpaRepository<Line, Long> {
 
 	@Query("SELECT l FROM Line l JOIN FETCH l.plan")
 	List<Line> findLinesWithPlan();
+	
+	@Query("SELECT l FROM Line l JOIN FETCH l.producedCaseCount")
+	List<Line> findLinesWithProducedCaseCount();
 }
+

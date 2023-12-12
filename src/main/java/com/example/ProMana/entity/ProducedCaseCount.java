@@ -13,7 +13,7 @@ import lombok.Data;
 @Entity
 @Table(name = "produced_case_counts")
 @Data
-public class Produced_case_count extends AbstractEntity{
+public class ProducedCaseCount extends AbstractEntity{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

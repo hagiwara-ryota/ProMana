@@ -17,14 +17,14 @@ public class PlansService {
 	@Autowired
 	private LinesRepository linesRepository;
 
-	public void registerPlan(Long lines_id, int planned_case_count) {
+	public void registerPlan(Long linesId, int plannedCaseCount) {
 
-		Line line = linesRepository.findById(lines_id)
-				.orElseThrow(() -> new RuntimeException("Lines with id " + lines_id + " not found"));
+		Line line = linesRepository.findById(linesId)
+				.orElseThrow(() -> new RuntimeException("Lines with id " + linesId + " not found"));
 
 		Plan plan = new Plan();
 		plan.setLines(line);
-		plan.setPlanned_case_count(planned_case_count);
+		plan.setPlannedCaseCount(plannedCaseCount);
 
 		plansRepository.saveAndFlush(plan);
 	}
